@@ -1,71 +1,57 @@
 from random import randint
 from collections import deque
 
-class Elevator(list):
-
-    register_list = deque('')
-    current_floor = 0
-    direrction = 1
-
-    def move(self):
-        self.current_floor += self.direrction
-
-    def search_floor(self, user):
-        for people in self:
-            if building_floor in
-        self.register_list.append(self)
-
-    def on_arrival(self):
-        self.register_list.popleft()
-
-class Building:
-
-    snoop = Elevator()
-    def __init__(self, building_floors, building_users):
-        self.building_floors = building_floors
-        self.building_users = building_users
-        __class__.snoop.append(self)
-
-    @property
-    def getFloors(self):
-        return self.building_floors
-
-    @property
-    def getUsers(self):
-        return self.building_users
-
-    def setFloores():
-        building_floors = int(input())
-
-    def setUsers():
-        building_users = int(input())
-
-
+class Building():
+    building_users = []
+    no_of_users = int(input('enterr no of users'))
+    no_of_floors = int(input('pls enter number of floors'))
 
 class User(Building):
 
-    current_floor = randint(1, 5)
-    destination_floor = randint(1, 5)
-    customer_ID = 0
+    down = False
+    up = False
+
+    def __init__(self, user_ID):
+        self.user_ID = user_ID
+        self.current_floor = randint(1, Building.no_of_floors)
+        self.destination_floor = randint(1,Building.no_of_floors)
+
+    def __str__(self):
+
+            print("user id {} destination floor is {} and current floor is {}" \
+                  .format(self.user_ID, self.destination_floor, self.current_floor))
 
     def yrange(n):
-        while customer_ID < n:
-            yield customer_ID
-            customer_ID += 1
+        i = 0
+        while i < n:
+            yield i
+            i += 1
+
+class Elevator():
+    register_list = []
+    on_bord_list = deque
+    current_floor = 0
+    direrction_UP = False
+    direrction_DOWN = False
+
+    def on_enter(self, reg_list):
+        self.on_bord_list.append(self)
+
+    def on_arrival(self):
+        self.on_bord_list.popleft()
+
+
+
 if __name__== "__main__":
-    f = Building.setFloores()
-    b = Building.setUsers()
-    y = User.yrange(b)
 
-    print(Elevator.register_list)
+    a = Building.building_users
+    for i in User.yrange(Building.no_of_users):
+        a.append(User(i))
 
+    c = Elevator.on_bord_list
 
-'''elevator = deque('abcdefghijklmnoprstuvz')
-elevator.append('x')
-elevator.popleft()
-elevator.appendleft('1')
-list(elevator)
-a = elevator[0]
-print(a)'''
-
-
+    ele = Elevator()
+    for i in range(a):
+        print(a[1])
+    if ele.current_floor < a[0].current_floor :
+           print("you ca get out")
