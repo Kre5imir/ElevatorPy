@@ -12,8 +12,8 @@ class User(Building):
         self.user_ID = user_ID
         self.current_floor = randint(1, Building.no_of_floors)
         self.destination_floor = randint(1,Building.no_of_floors)
-        self.down = False
-        self.up = False
+        self.downwards = self.current_floor > self.destination_floor
+        self.up = self.current_floor < self.destination_floor
     '''def __str__(self):
 
             print("user id {} destination floor is {} and current floor is {}" \
@@ -23,11 +23,6 @@ class User(Building):
         while i < n:
             yield i
             i += 1
-    def choose_direction(self):
-        if self.destination_floor > self.current_floor:
-             self.up = True
-        else:
-            self.down = True
 
 class Elevator():
     down = False
@@ -52,7 +47,7 @@ def main():
 
     gen_ID = User.yrange(no_of_users)
     U = User(gen_ID)
-    print(U)
+
     E = Elevator()
     register_list = E.on_bord_list
 
@@ -67,18 +62,14 @@ def main():
               .format(i.user_ID, i.destination_floor, i.current_floor))
 
         if E.current_floor < i.current_floor:
-            E.up = True
-            while True:
-                if User.choose_direction(user_list) == User.up:
+            #E.up = True
+           # while True:
+                if i.up == i.up:
                     register_list.append(i.user_ID)
-                else:
-                    register_list.append(i.user_ID)
+                #False
 
-
-
-
-
-    print(register_list)
+    for i in register_list:
+        print(i)
 if __name__== "__main__":
 
     main()
