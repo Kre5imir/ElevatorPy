@@ -7,6 +7,10 @@ class Data(object):
     def __init__(self, name, value):
         self.name = name
         self.value = value
+        self.no_of_users = ttk.Entry(root)  # int(input('enterr no of users'))
+        self.no_of_users.grid(row=0, column=1)
+
+
 class Data2(object):
     """  The data class  """
 
@@ -44,6 +48,7 @@ class Application(Tk):
 
         self.users = Label(self.frame_content, text="how many users:")
         self.users.grid(row=1, column=0)
+        #function get users will store in strinVar 'u' number from Entry 'entry_users'
         self.u = StringVar()
         self.entry_users = Entry(self.frame_content)
         self.entry_users.grid(row=1, column=1)
@@ -93,7 +98,7 @@ class Application(Tk):
 if __name__ == "__main__":
     root = Tk()
     testRed = RedFrame(root)
-    testData = Data("kresimir", "some value")
+    testData = Data(gui.u,gui.f)
     testData2 = Data("kresimir2", "some value2")
     print(testData2.name, testData.value)
 
