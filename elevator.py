@@ -33,7 +33,7 @@ class Elevator():
     direction = 1
 
     def __init__(self):
-        ''' initialize current floor of elevator
+        ''' initialize floor of elevator
         '''
         self.current_floor = 0#randint(0, Building.no_of_floors)
 
@@ -71,7 +71,7 @@ class Building():
 
 
     def default(self):
-        """"moving from floor to floor, top to bottom, default strategy"""
+        """"moving from floor to floor, top to bottom, default strategy as usual """
         if self.lift.current_floor > self.no_of_floors -1:
             self.lift.direction = -1
         elif self.lift.current_floor <= 0:
